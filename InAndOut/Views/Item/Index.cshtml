@@ -25,9 +25,9 @@
                        @foreach(var item in Model)
                 {
                     <tr>
-                        <td width="30%"></td>
+                        <td width="30%">@item.ItemName</td>
                         <td width="30%">@item.Borrower</td>
-                        <td width="30%">@item.Id</td>
+                        <td width="30%">@item.Lender</td>
                     </tr>
                 }
                    </tbody>
