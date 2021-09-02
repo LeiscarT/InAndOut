@@ -21,22 +21,22 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-4">
-                        TextBox
+                        <input asp-for="ItemName" class="form-control"/>
                     </div>
                     <div class="col-4">
-                        TextBox
+                        <input asp-for="Borrower" class="form-control"/>
                     </div>
                     <div class="col-4">
-                        TextBox
+                        <input asp-for="Lender" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-8 text-center row">
+                    <div class="col-8 offset-2 row">
                         <div class="col">
-                            Go back
+                            <a asp-controller="Item" asp-action="Index" class="btn btn-outline-danger w-75">Back</a>
                         </div>
                         <div class="col">
-                          Create Button
+                          <input type="submit" class="btn btn-outline-info w-75" value="Create"/>
                         </div>
                     </div>
                 </div>

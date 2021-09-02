@@ -1,12 +1,12 @@
-﻿@model IEnumerable<InAndOut.Models.Item>
-
+﻿@model IEnumerable<InAndOut.Models.Expense>
+ 
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary"> Borrowed Items List</h2>
+            <h2 class="text-primary"> Expenses List</h2>
         </div>
-        <div class="col-6">
-            <a class="btn btn-outline-primary" asp-controller="Item" asp-action="Create">Create new Item</a>
+        <div class="col-6 offset-10">
+            <a class="btn btn-outline-primary" asp-controller="Expense" asp-action="Create">Create new Expense</a>
         </div>
     </div>
     <br />
@@ -16,27 +16,24 @@
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th>Item Name</th>
-                    <th>Borrower</th>
-                    <th>Lender</th>
+                    <th>Expense</th>
+                    <th>Amount</th>
+                   
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td width="30%">@item.ItemName</td>
-                        <td width="30%">@item.Borrower</td>
-                        <td width="30%">@item.Lender</td>
+                        <td width="50%">@item.ExpenseName</td>
+                        <td width="50%">@item.Amount</td>
                     </tr>
                 }
             </tbody>
         </table>
     }
-    else
-    {
+    else { 
         <a>No items created yet</a>
     }
 
 </div>
-
