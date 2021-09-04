@@ -1,11 +1,11 @@
 ﻿@model InAndOut.Models.Expense
 
-<form method="post" asp-action="DeletePost">
-    <input asp-for="Id" hidden />
+<form method="post" asp-action="Update">
+    <input asp-for="Id" hidden/>
     <div class="border p-3">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
-            <h2 class="text-black-50 pl-3">Delete Expense</h2>
+            <h2 class="text-black-50 pl-3">Update Expense</h2>
         </div>
 
         <div class="row">
@@ -21,19 +21,21 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-6">
-                        <input asp-for="ExpenseName" disabled class="form-control" />
+                        <input asp-for="ExpenseName" class="form-control" />
+                        <span asp-validation-for="ExpenseName" class="text-danger"></span>
                     </div>
                     <div class="col-6">
-                        <input asp-for="Amount" disabled class="form-control" />
+                        <input asp-for="Amount" class="form-control" />
+                        <span asp-validation-for="Amount" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-8 offset-2 row">
                         <div class="col">
-                            <a asp-controller="Expense" asp-action="Index" class="btn btn-outline-success w-75">Back</a>
+                            <a asp-controller="Expense" asp-action="Index" class="btn btn-outline-danger w-75">Back</a>
                         </div>
                         <div class="col">
-                            <input type="submit" class="btn btn-outline-danger w-75" value="Delete" />
+                            <input type="submit" class="btn btn-outline-info w-75" value="Update" />
                         </div>
                     </div>
                 </div>
@@ -50,4 +52,4 @@
     @{
         <partial name="_ValidationScriptsPartial" />
     }
-}
+    }

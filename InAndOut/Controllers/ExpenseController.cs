@@ -60,8 +60,6 @@ namespace InAndOut.Controllers
         }
 
 
-
-
         [HttpPost]
         [AutoValidateAntiforgeryToken]
 
@@ -77,8 +75,37 @@ namespace InAndOut.Controllers
             return RedirectToAction("Index");
         }
 
+        //get update 
+
+        public IActionResult Update(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Expenses.Find(id);
+            if(obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
 
 
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+
+        public IActionResult Update(Expense obj)
+        {
+            if(obj == null)
+            {
+                return NotFound();
+            }
+            _db.Expenses.Update(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
 
 
